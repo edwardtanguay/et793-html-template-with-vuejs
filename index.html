@@ -193,17 +193,28 @@
 				data() {
 					return {
 						quote: "",
+						quotes: [
+							"quote 1",
+							"quote 2",
+							"quote 3",
+							"quote 4",
+							"quote 5",
+						],
 					};
 				},
 				methods: {
 					initialize() {
-						this.quote = "quote #" + this.getRandomNumberBetween(1,20)
+						this.quote = this.getRandomQuote();
 					},
 					getRandomNumberBetween(min, max) {
 						return (
 							Math.floor(Math.random() * (max - min + 1)) + min
 						);
 					},
+					getRandomQuote() {
+						const randomIndex = this.getRandomNumberBetween(0,this.quotes.length - 1);
+						return this.quotes[randomIndex]; 
+					}
 				},
 			})
 				.mount("#vueapp")
