@@ -48,11 +48,13 @@
 						/></a>
 						<div class="content">
 							<h3>{{employeeTitle}}</h3>
+							<h4>There are {{employees.filter(m => m.showTitle === false).length}} that are showing phone number.</h4>
 							<div class="bg-gray-300 mb-4 flex gap-3 items-center" v-for="employee in employees">
-								<img class="w-20" :src="`https://edwardtanguay.vercel.app/share/images/employees/employee_${employee.employeeID}.jpg`"/>
+								<img @click="employee.showTitle = !employee.showTitle" class="w-20" :src="`https://edwardtanguay.vercel.app/share/images/employees/employee_${employee.employeeID}.jpg`"/>
 								<div class="text-center w-full">
 								<p class="font-bold">{{employee.firstName}} {{employee.lastName}}</p>
-								<p>{{employee.title}}</p>
+								<p v-if="employee.showTitle">{{employee.title}}</p>
+								<p v-if="!employee.showTitle">{{employee.address.phone}}</p>
 								</div>
 							</div>
 						</div>
@@ -210,6 +212,9 @@
 						// this.employees = await response.json();
 						const response = await axios.get('https://edwardtanguay.vercel.app/share/employees.json');
 						this.employees = response.data;
+						for(const employee of this.employees) {
+							employee.showTitle = true;
+						}
 						this.employeeTitle = `Our ${this.employees.length} Employees:`
 					},
 					getRandomNumberBetween(min, max) {
