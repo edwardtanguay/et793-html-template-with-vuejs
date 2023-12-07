@@ -38,10 +38,6 @@
 			<div id="main">
 				<header class="major container medium">
 					<h2>{{quote}}</h2>
-					<!--
-					<p>Tellus erat mauris ipsum fermentum<br />
-					etiam vivamus nunc nibh morbi.</p>
-					-->
 				</header>
 
 				<div class="box alt container">
@@ -50,7 +46,7 @@
 							><img src="images/pic01.jpg" alt=""
 						/></a>
 						<div class="content">
-							<h3>The First Thing</h3>
+							<h3>{{employeeTitle}}</h3>
 							<p>
 								Vitae natoque dictum etiam semper magnis enim
 								feugiat amet curabitur tempor orci penatibus.
@@ -198,11 +194,13 @@
 							"Ich bin mein eigenes Eigentum.",
 							"Ich habe keinen Anteil an dem, was einer Sache anhaftet; die Sache mag mich kümmern oder nicht kümmern.",
 						],
+						employeeTitle: ''
 					};
 				},
 				methods: {
 					initialize() {
 						this.quote = this.getRandomQuote();
+						this.employeeTitle = 'Our nnn Employees:'
 					},
 					getRandomNumberBetween(min, max) {
 						return (
