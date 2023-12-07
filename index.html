@@ -192,9 +192,14 @@
 			Vue.createApp({
 				data() {
 					return {
-						quote: "this is a test quote 222",
+						quote: "",
 					};
 				},
+				methods: {
+					initialize() {
+						this.quote = 'test quote created in initialize()'
+					}
+				}
 			})
 				.mount("#vueapp")
 				.initialize();
