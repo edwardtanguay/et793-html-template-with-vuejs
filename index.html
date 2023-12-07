@@ -194,13 +194,18 @@
 							"Ich bin mein eigenes Eigentum.",
 							"Ich habe keinen Anteil an dem, was einer Sache anhaftet; die Sache mag mich kümmern oder nicht kümmern.",
 						],
-						employeeTitle: ''
+						employeeTitle: '',
+						employees: []
 					};
 				},
 				methods: {
 					initialize() {
 						this.quote = this.getRandomQuote();
-						this.employeeTitle = 'Our nnn Employees:'
+						this.loadEmployees();
+						this.employeeTitle = `Our ${this.employees.length} Employees:`
+					},
+					loadEmployees() {
+						this.employees = [111,222,333,444,555]
 					},
 					getRandomNumberBetween(min, max) {
 						return (
