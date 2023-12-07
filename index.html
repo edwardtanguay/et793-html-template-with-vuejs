@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="https://unpkg.com/vue@next"></script>
+		<script src=" https://cdn.jsdelivr.net/npm/axios@1.6.2/dist/axios.min.js "></script>
 	</head>
 	<body class="is-preload">
 		<div id="vueapp">
@@ -204,8 +205,10 @@
 						this.loadEmployees();
 					},
 					async loadEmployees() {
-						const response = await fetch('https://edwardtanguay.vercel.app/share/employees.json');
-						this.employees = await response.json();
+						// const response = await fetch('https://edwardtanguay.vercel.app/share/employees.json');
+						// this.employees = await response.json();
+						const response = await axios.get('https://edwardtanguay.vercel.app/share/employees.json');
+						this.employees = response.data;
 						this.employeeTitle = `Our ${this.employees.length} Employees:`
 					},
 					getRandomNumberBetween(min, max) {
