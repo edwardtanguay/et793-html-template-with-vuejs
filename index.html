@@ -48,12 +48,13 @@
 						/></a>
 						<div class="content">
 							<h3>{{employeeTitle}}</h3>
-							<p>
-								Vitae natoque dictum etiam semper magnis enim
-								feugiat amet curabitur tempor orci penatibus.
-								Tellus erat mauris ipsum fermentum etiam vivamus
-								eget. Nunc nibh morbi quis fusce lacus.
-							</p>
+							<div class="bg-gray-300 mb-4 flex gap-3 items-center" v-for="employee in employees">
+								<img class="w-20" :src="`https://edwardtanguay.vercel.app/share/images/employees/employee_${employee.employeeID}.jpg`"/>
+								<div class="text-center w-full">
+								<p class="font-bold">{{employee.firstName}} {{employee.lastName}}</p>
+								<p>{{employee.title}}</p>
+								</div>
+							</div>
 						</div>
 					</section>
 					<section class="feature right">
