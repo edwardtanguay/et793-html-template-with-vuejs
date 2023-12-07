@@ -197,9 +197,14 @@
 				},
 				methods: {
 					initialize() {
-						this.quote = 'test quote created in initialize()'
-					}
-				}
+						this.quote = "quote #" + this.getRandomNumberBetween(1,20)
+					},
+					getRandomNumberBetween(min, max) {
+						return (
+							Math.floor(Math.random() * (max - min + 1)) + min
+						);
+					},
+				},
 			})
 				.mount("#vueapp")
 				.initialize();
