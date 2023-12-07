@@ -194,11 +194,9 @@
 					return {
 						quote: "",
 						quotes: [
-							"quote 1",
-							"quote 2",
-							"quote 3",
-							"quote 4",
-							"quote 5",
+							"Der Einzige ist nicht nur gegen Staat, er ist auch gegen Gesellschaft.",
+							"Ich bin mein eigenes Eigentum.",
+							"Ich habe keinen Anteil an dem, was einer Sache anhaftet; die Sache mag mich kümmern oder nicht kümmern.",
 						],
 					};
 				},
@@ -212,9 +210,12 @@
 						);
 					},
 					getRandomQuote() {
-						const randomIndex = this.getRandomNumberBetween(0,this.quotes.length - 1);
-						return this.quotes[randomIndex]; 
-					}
+						const randomIndex = this.getRandomNumberBetween(
+							0,
+							this.quotes.length - 1
+						);
+						return this.quotes[randomIndex];
+					},
 				},
 			})
 				.mount("#vueapp")
